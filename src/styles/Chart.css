@@ -1,0 +1,229 @@
+@keyframes chartBarSlideUp {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: slideInUp 0.6s ease-out;
+}
+
+.chart-header {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 16px;
+  animation: slideInDown 0.4s ease-out;
+}
+
+.chart-header h2 {
+  margin: 0;
+  transition: color 0.3s ease-in-out;
+}
+
+.chart-header h2:hover {
+  color: var(--primary-color);
+}
+
+.chart-legend {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  animation: slideInLeft 0.4s ease-out 0.1s both;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.legend-item:hover {
+  transform: translateX(4px);
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.legend-item:hover .legend-color {
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.legend-income {
+  background: var(--secondary-color);
+}
+
+.legend-expense {
+  background: var(--danger-color);
+}
+
+.chart-wrapper {
+  min-height: 300px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: var(--light-bg);
+  border-radius: 8px;
+  padding: 32px 16px 16px;
+  animation: scaleIn 0.6s ease-out 0.2s both;
+  transition: all 0.3s ease-in-out;
+}
+
+.chart-wrapper:hover {
+  box-shadow: inset 0 0 20px rgba(59, 130, 246, 0.05);
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  height: 250px;
+  animation: fadeIn 0.6s ease-out 0.3s both;
+}
+
+.chart-bar-group {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: slideInUp 0.6s ease-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.chart-bar-group:nth-child(1) { animation-delay: 0.3s; }
+.chart-bar-group:nth-child(2) { animation-delay: 0.35s; }
+.chart-bar-group:nth-child(3) { animation-delay: 0.4s; }
+.chart-bar-group:nth-child(4) { animation-delay: 0.45s; }
+.chart-bar-group:nth-child(5) { animation-delay: 0.5s; }
+.chart-bar-group:nth-child(6) { animation-delay: 0.55s; }
+.chart-bar-group:nth-child(7) { animation-delay: 0.6s; }
+
+.chart-bar-group:hover {
+  transform: translateY(-4px);
+}
+
+.chart-bar-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  height: 150px;
+  transition: all 0.3s ease-in-out;
+}
+
+.chart-bar {
+  flex: 1;
+  min-height: 4px;
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  animation: chartBarSlideUp 0.8s ease-out both;
+}
+
+.chart-bar:nth-child(1) { animation-delay: 0.3s; }
+.chart-bar:nth-child(2) { animation-delay: 0.35s; }
+
+.chart-bar:hover {
+  opacity: 0.9;
+  transform: scaleY(1.1);
+  filter: brightness(1.2);
+}
+
+.income-bar {
+  background: var(--secondary-color);
+}
+
+.expense-bar {
+  background: var(--danger-color);
+}
+
+.chart-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: center;
+  width: 100%;
+}
+
+.chart-tooltip {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-lg);
+  white-space: nowrap;
+  animation: slideInDown 0.2s ease-out;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.empty-state-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.empty-state-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  max-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .chart-wrapper {
+    padding: 24px 12px 12px;
+  }
+
+  .chart {
+    gap: 8px;
+    height: 200px;
+  }
+
+  .chart-bar-wrapper {
+    height: 120px;
+  }
+
+  .chart-legend {
+    gap: 16px;
+  }
+}

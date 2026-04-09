@@ -1,0 +1,115 @@
+.header {
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  padding: 24px 0;
+  margin-bottom: 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  animation: slideInDown 0.5s ease-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.header:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.header-content {
+  align-items: center;
+  flex-wrap: wrap;
+  animation: fadeIn 0.6s ease-out 0.1s both;
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 28px;
+  transition: all 0.3s ease-in-out;
+  animation: slideInLeft 0.5s ease-out;
+}
+
+.header-title h1:hover {
+  color: var(--primary-color);
+  transform: translateX(4px);
+}
+
+.header-title p {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+  transition: color 0.3s ease-in-out;
+  animation: slideInLeft 0.5s ease-out 0.1s both;
+}
+
+.header-title p:hover {
+  color: var(--text-primary);
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  animation: slideInRight 0.5s ease-out;
+}
+
+.btn-icon {
+  background: var(--light-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-icon:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  transform: scale(1.1) rotate(5deg);
+}
+
+.role-select {
+  padding: 10px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  animation: slideInRight 0.5s ease-out 0.1s both;
+}
+
+.role-select:hover,
+.role-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin-bottom: 24px;
+  }
+
+  .header-content {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .header-controls {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .header-title h1 {
+    font-size: 24px;
+  }
+}
